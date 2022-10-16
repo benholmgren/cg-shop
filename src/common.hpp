@@ -2,8 +2,7 @@
 
 #include <CGAL/Exact_predicates_exact_constructions_kernel.h>
 #include <CGAL/Boolean_set_operations_2.h>
-#include "json.hpp"
-#include <fstream>
+#include <span>
 
 using Kernel = CGAL::Exact_predicates_exact_constructions_kernel;
 using Point = Kernel::Point_2;
@@ -16,3 +15,5 @@ PolygonWithHoles open(const std::string& path);
 void print_polygon(const Polygon& polygon);
 
 void print_polygon(const PolygonWithHoles& polygon);
+
+void write_polygons_to_file(const std::string& path, std::span<const Polygon> polygons);

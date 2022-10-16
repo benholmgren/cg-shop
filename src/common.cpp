@@ -1,8 +1,12 @@
 #include "common.hpp"
+#include "json.hpp"
+#include <fstream>
+
+using json = nlohmann::json;
 
 PolygonWithHoles open(const std::string& path) {
     std::ifstream f(path);
-    auto data = nlohmann::json::parse(f);
+    const auto data = json::parse(f);
 
     PolygonWithHoles polygon;
     polygon.outer_boundary().container().reserve(data["outer_boundary"].size());
@@ -52,4 +56,21 @@ void print_polygon(const PolygonWithHoles& polygon) {
             std::cout << v.x() << " " << v.y() << std::endl;
         }
     }
+}
+
+void write_polygons_to_file(const std::string& path, std::span<const Polygon> polygons) {
+    std::ofstream f(path);
+    json data;
+
+    for (const auto& p : polygons) {
+        json p_data;
+
+        for (const auto v : p) {
+            p_data.push_back({{"x", to_double(v.x())}, {"y", to_double(v.y())}});
+        }
+
+        data.push_back(p_data);
+    }
+
+    f << data.dump();
 }
