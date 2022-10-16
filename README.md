@@ -12,7 +12,7 @@
 - Poses problem/Introduces Steiner points
 - Canonical Reduction from 3-SAT
 
-[Original NP-Hardness Result for Polygons Without Holes](https://www.math.ucdavis.edu/~deloera/MISC/LA-BIBLIO/trunk/Culberson.pdf
+[Original NP-Hardness Result for Polygons Without Holes](https://www.math.ucdavis.edu/~deloera/MISC/LA-BIBLIO/trunk/Culberson.pdf)
 
 [Extra Hardness of Convex Cover](https://arxiv.org/pdf/2106.02335.pdf)
 - Not verifiable, uber hard!
